@@ -2,7 +2,6 @@
 layout: post
 title: IntellijIdea快速测试API接口的一个新技能
 categories: IntellijIdea
-lastUpdated:
 ---
 
 ## {{ page.title }}
