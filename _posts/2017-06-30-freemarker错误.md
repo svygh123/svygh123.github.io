@@ -27,7 +27,7 @@ lastUpdated:
 
 FirstFree.java
 
-```
+```java
 package gen;
 
 import java.io.File;
@@ -90,7 +90,7 @@ class Product {
 
 templates/test.ftlh内容如下：
 
-```
+```html
 <html>
 <head>
   <title>Welcome!</title>
@@ -105,7 +105,7 @@ templates/test.ftlh内容如下：
 
 错误信息如下：
 
-```
+```bash
 Exception in thread "main" FreeMarker template error:
 The following has evaluated to null or missing:
 ==> latestProduct.url  [in template "test.ftlh" at line 8, column 14]
