@@ -141,6 +141,9 @@ freemarker.core.InvalidReferenceException: [... Exception message was already pr
 
 将Product类单独放到一个类里面：
 
+{% highlight java %}
+
+
 ```
 package gen;
 
@@ -165,6 +168,8 @@ public class Product {
 	}
 }
 ```
+
+{% endhighlight %}
 
 **更新列表：**
 
