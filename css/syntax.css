@@ -5,7 +5,7 @@
 .highlight .o {  } /* Operator */
 .highlight .cm { color: #3F5FBF; font-style: italic } /* Comment.Multiline #999988 */
 .highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
-.highlight .c1 { color: #3FAB98; font-style: italic } /* Comment.Single #999988 */
+.highlight .c1 { color: rgb(0, 128, 0); font-style: italic } /* Comment.Single #999988 */
 .highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
 .highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
