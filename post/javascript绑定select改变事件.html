@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="js 给select 绑定改变后的事件onchange，javascript绑定select 标签发生改变时，获取选中项">
+  <meta name="author" content="svygh123、风雨心行、软件开发与技术设计、357228560" />
+  <title>javascript绑定select改变事件</title>
+  <!-- 引入 highlight.js 的样式：v11.10.0   
+  <link href="default.min.css" rel="stylesheet">
+  -->
+  <!-- 引入 Markdown-it.js：v13.0.2 和 highlight.js：v11.10.0
+  <script src="markdown-it.min.js"></script>
+  <script src="highlight.min.js"></script>
+    -->
+  <link href="skeleton.css" rel="stylesheet">
+  <link href="content.css" rel="stylesheet">
+  <script src="common.js"></script>
+</head>
+<body>
+	<div id="article">
+    <div title="返回首页" class="container bread" style="margin: 10px auto; cursor: pointer; border-bottom: 1px solid #49a7ea;">
+		     <a class="underline-none" href="/">源码家园</a> 
+	  </div>
+		<h1 class="title text-center">javascript绑定select改变事件</h1>
+		<div class="info text-center">发布日期：2024-08-29   作者：svygh123 分类：文章</div>
+		<div id="content" class="container" style="padding:8px">
+      <div class="summary">在JavaScript中，可以通过监听select元素的change事件来处理选择改变的情况。</div>
+      <h2>引言</h2>
+<p>在JavaScript中，可以通过监听select元素的change事件来处理选择改变的情况。下面举个简单的例子进行说明。</p>
+<h2>HTML部分</h2>
+<pre><code>&lt;select id=&quot;mySelect&quot;&gt;
+  &lt;option value=&quot;option1&quot;&gt;Option 1&lt;/option&gt;
+  &lt;option value=&quot;option2&quot;&gt;Option 2&lt;/option&gt;
+  &lt;option value=&quot;option3&quot;&gt;Option 3&lt;/option&gt;
+&lt;/select&gt;
+</code></pre>
+<h2>JavaScript部分</h2>
+<pre><code>document.getElementById('mySelect').addEventListener('change', function(event) {
+  // 获取选中的值
+  var selectedValue = event.target.value;
+  // 执行相应的操作
+  console.log('Selected value is: ' + selectedValue);
+  // 获取选中的节点索引
+  var selectedIndex = event.target.selectedIndex;
+  // 获取选中的option节点
+  var selectedOption = event.target.options[selectedIndex];
+});
+</code></pre>
+<h2>说明</h2>
+<p>在这个例子中，当用户改变select元素的选择时，会触发change事件，然后执行回调函数，打印出选中的值、选中的索引、选中的项。</p>
+<p><strong>您可能感兴趣的文章</strong>：</p>
+<ul>
+<li><a href="毕业设计选题系统.html">毕业设计选题系统</a></li>
+<li><a href="一站式缴费系统.html">一站式缴费系统</a></li>
+<li><a href="学生信息管理系统.html">学生信息管理系统</a></li>
+<li><a href="eclipse独立绿色版2023-12-R.html">eclipse独立绿色版2023-12-R</a></li>
+<li><a href="eclipse独立绿色版2024-03-R-MySQL5.html">eclipse独立绿色版2024-03-R-MySQL5</a></li>
+<li><a href="eclipse独立绿色版2024-03-R.html">eclipse独立绿色版2024-03-R</a></li>
+</ul>
+
+      <div class="summary">联系我：357228560@qq.com</div><div class="overlay" id="overlay"><img src="" alt="Zoomed Image" id="zoomedImage"></div>
+    </div>
+	</div>
+  <script>
+      show_large_image();
+  </script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="个人博客系统快速搭建，专注个人博客，VuePress快速搭建个人博客">
+  <meta name="author" content="svygh123、风雨心行、软件开发与技术设计、357228560" />
+  <title>VuePress快速搭建博客</title>
+  <!-- 引入 highlight.js 的样式：v11.10.0   
+  <link href="default.min.css" rel="stylesheet">
+  -->
+  <!-- 引入 Markdown-it.js：v13.0.2 和 highlight.js：v11.10.0
+  <script src="markdown-it.min.js"></script>
+  <script src="highlight.min.js"></script>
+    -->
+  <link href="skeleton.css" rel="stylesheet">
+  <link href="content.css" rel="stylesheet">
+  <script src="common.js"></script>
+</head>
+<body>
+	<div id="article">
+    <div title="返回首页" class="container bread" style="margin: 10px auto; cursor: pointer; border-bottom: 1px solid #49a7ea;">
+		     <a class="underline-none" href="/">源码家园</a> 
+	  </div>
+		<h1 class="title text-center">VuePress快速搭建博客</h1>
+		<div class="info text-center">发布日期：2024-08-30   作者：svygh123 分类：文章</div>
+		<div id="content" class="container" style="padding:8px">
+      <div class="summary">通过VuePress快速搭建个人博客，帮助作者专注于博客写作。</div>
+      <h3>创建项目</h3>
+<pre><code>npm init vuepress vuepress-starter
+</code></pre>
+<h3>创建过程</h3>
+<pre><code>Microsoft Windows [版本 6.1.7601]
+版权所有 (c) 2009 Microsoft Corporation。保留所有权利。
+
+D:\soft\src\node-v18.18.2-win-x64&gt;npm init vuepress vuepress-starter
+Need to install the following packages:
+create-vuepress@2.0.0-rc.12
+Ok to proceed? (y) y
+
+? Select a language to display / 选择显示语言
+  english (US)
+&gt; 简体中文
+
+? Select a language to display / 选择显示语言 简体中文
+? 选择包管理器
+  pnpm
+  yarn
+&gt; npm
+
+? 选择包管理器 npm
+? 你想要使用哪个打包器？ (Use arrow keys)
+&gt; vite
+  webpack
+
+? 你想要使用哪个打包器？ vite
+? 你想要创建什么类型的项目？ (Use arrow keys)
+&gt; blog
+  docs
+
+生成 package.json...
+? 设置应用名称 (my-vuepress-site)
+
+回车
+? 设置应用名称 my-vuepress-site
+? 设置应用版本号 (0.0.1)
+
+回车
+
+? 设置应用版本号 0.0.1
+? 设置应用描述 (A VuePress project)
+
+回车
+
+? 设置应用描述 A VuePress project
+? 设置协议 (MIT)
+
+回车
+
+? 设置协议 MIT
+? 是否需要一个自动部署文档到 GitHub Pages 的工作流？ (Y/n) y
+
+生成模板...
+? 选择你想使用的源 (Use arrow keys)
+&gt; 国内镜像源
+  当前源
+
+回车
+
+安装依赖...
+这可能需要数分钟，请耐心等待.
+我们无法正确输出子进程的进度条，所以进程可能会看似未响应
+
+added 226 packages in 29s
+
+69 packages are looking for funding
+  run `npm fund` for details
+模板已成功生成!
+? 是否想要现在启动 Demo 查看? (Y/n) y
+
+启动开发服务器...
+启动成功后，请在浏览器输入给出的开发服务器地址(默认为 'localhost:8080')
+
+&gt; my-vuepress-site@0.0.1 docs:dev
+&gt; vuepress dev docs
+
+file:///D:/soft/src/node-v18.18.2-win-x64/node_cache/_npx/3f091d7c366309f0/node_
+modules/execa/lib/error.js:60
+                error = new Error(message);
+                        ^
+
+Error: Command failed with exit code 1: npm run docs:dev
+D:\soft\src\node-v18.18.2-win-x64\vuepress-starter\node_modules\rollup\dist\native.js:59
+                throw new Error(
+                      ^
+
+Error: Cannot find module @rollup/rollup-win32-x64-msvc. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (D:\soft\src\node-v18.18.2-win-x64\vuepress-starter\node_modules\rollup\dist\native.js:59:9)
+    at Object.&lt;anonymous&gt; (D:\soft\src\node-v18.18.2-win-x64\vuepress-starter\node_modules\rollup\dist\native.js:68:76)
+    ... 2 lines matching cause stack trace ...
+    at Module.load (node:internal/modules/cjs/loader:1119:32)
+    at Module._load (node:internal/modules/cjs/loader:960:12)
+    at ModuleWrap.&lt;anonymous&gt; (node:internal/modules/esm/translators:169:29)
+    at ModuleJob.run (node:internal/modules/esm/module_job:194:25) {
+  [cause]: Error: The specified procedure could not be found.
+  \\?\D:\soft\src\node-v18.18.2-win-x64\vuepress-starter\node_modules\@rollup\rollup-win32-x64-msvc\rollup.win32-x64-msvc.node
+      at Module._extensions..node (node:internal/modules/cjs/loader:1340:18)
+      at Module.load (node:internal/modules/cjs/loader:1119:32)
+      at Module._load (node:internal/modules/cjs/loader:960:12)
+      at Module.require (node:internal/modules/cjs/loader:1143:19)
+      at require (node:internal/modules/cjs/helpers:119:18)
+      at requireWithFriendlyError (D:\soft\src\node-v18.18.2-win-x64\vuepress-starter\node_modules\rollup\dist\native.js:41:10)
+      at Object.&lt;anonymous&gt; (D:\soft\src\node-v18.18.2-win-x64\vuepress-starter\node_modules\rollup\dist\native.js:68:76)
+      at Module._compile (node:internal/modules/cjs/loader:1256:14)
+      at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
+      at Module.load (node:internal/modules/cjs/loader:1119:32) {
+    code: 'ERR_DLOPEN_FAILED'
+  }
+}
+
+Node.js v18.18.2
+    at makeError (file:///D:/soft/src/node-v18.18.2-win-x64/node_cache/_npx/3f091d7c366309f0/node_modules/execa/lib/error.js:60:11)
+    at handlePromise (file:///D:/soft/src/node-v18.18.2-win-x64/node_cache/_npx/3f091d7c366309f0/node_modules/execa/index.js:124:26)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async CAC.mainAction (file:///D:/soft/src/node-v18.18.2-win-x64/node_cache/_npx/3f091d7c366309f0/node_modules/create-vuepress/lib/action.js:96:9) {
+  shortMessage: 'Command failed with exit code 1: npm run docs:dev',
+  command: 'npm run docs:dev',
+  escapedCommand: 'npm run &quot;docs:dev&quot;',
+  exitCode: 1,
+  signal: undefined,
+  signalDescription: undefined,
+  stdout: undefined,
+  stderr: 'D:\\soft\\src\\node-v18.18.2-win-x64\\vuepress-starter\\node_modules\\rollup\\dist\\native.js:59\r\n' +
+    '\t\tthrow new Error(\r\n' +
+    '\t\t      ^\r\n' +
+    '\r\n' +
+    'Error: Cannot find module @rollup/rollup-win32-x64-msvc. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please tr
+y `npm i` again after removing both package-lock.json and node_modules directory.\r\n' +
+    '    at requireWithFriendlyError (D:\\soft\\src\\node-v18.18.2-win-x64\\vuepress-starter\\node_modules\\rollup\\dist\\native.js:59:9)\r\n' +
+    '    at Object.&lt;anonymous&gt; (D:\\soft\\src\\node-v18.18.2-win-x64\\vuepress-starter\\node_modules\\rollup\\dist\\native.js:68:76)\r\n' +
+    '    ... 2 lines matching cause stack trace ...\r\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1119:32)\r\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:960:12)\r\n' +
+    '    at ModuleWrap.&lt;anonymous&gt; (node:internal/modules/esm/translators:169:29)\r\n' +
+    '    at ModuleJob.run (node:internal/modules/esm/module_job:194:25) {\r\n' +
+
+    '  [cause]: Error: The specified procedure could not be found.\r\r\n' +
+    '  \\\\?\\D:\\soft\\src\\node-v18.18.2-win-x64\\vuepress-starter\\node_modules\\@rollup\\rollup-win32-x64-msvc\\rollup.win32-x64-msvc.node\r\n' +
+    '      at Module._extensions..node (node:internal/modules/cjs/loader:1340:18)\r\n' +
+    '      at Module.load (node:internal/modules/cjs/loader:1119:32)\r\n' +
+    '      at Module._load (node:internal/modules/cjs/loader:960:12)\r\n' +
+    '      at Module.require (node:internal/modules/cjs/loader:1143:19)\r\n' +
+    '      at require (node:internal/modules/cjs/helpers:119:18)\r\n' +
+    '      at requireWithFriendlyError (D:\\soft\\src\\node-v18.18.2-win-x64\\vuepress-starter\\node_modules\\rollup\\dist\\native.js:41:10)\r\n' +
+    '      at Object.&lt;anonymous&gt; (D:\\soft\\src\\node-v18.18.2-win-x64\\vuepress-starter\\node_modules\\rollup\\dist\\native.js:68:76)\r\n' +
+    '      at Module._compile (node:internal/modules/cjs/loader:1256:14)\r\n' +
+    '      at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)\r\n' +
+    '      at Module.load (node:internal/modules/cjs/loader:1119:32) {\r\n' +
+    &quot;    code: 'ERR_DLOPEN_FAILED'\r\n&quot; +
+    '  }\r\n' +
+    '}\r\n' +
+    '\r\n' +
+    'Node.js v18.18.2',
+  cwd: 'vuepress-starter',
+  failed: true,
+  timedOut: false,
+  isCanceled: false,
+  killed: false
+}
+
+Node.js v18.18.2
+npm notice
+npm notice New major version of npm available! 9.8.1 -&gt; 10.8.3
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v10.8.3
+npm notice Run npm install -g npm@10.8.3 to update!
+npm notice
+npm ERR! code 1
+npm ERR! path D:\soft\src\node-v18.18.2-win-x64
+npm ERR! command failed
+npm ERR! command C:\Windows\system32\cmd.exe /d /s /c create-vuepress vuepress-s
+tarter
+
+npm ERR! A complete log of this run can be found in: D:\soft\src\node-v18.18.2-win-x64\node_cache\_logs\2024-08-30T04_45_40_190Z-debug-0.log
+
+</code></pre>
+<p>把问题解决之后，运行</p>
+<pre><code>npm run docs:dev
+</code></pre>
+<h3>VuePress PC界面</h3>
+<p><img src="https://s21.ax1x.com/2024/08/30/pAALcTK.png" alt="VuePress PC界面" /></p>
+<h3>VuePress 手机端界面1</h3>
+<p><img src="https://s21.ax1x.com/2024/08/30/pAAL6w6.png" alt="VuePress 手机端界面1" /></p>
+<h3>VuePress 手机端界面2</h3>
+<p><img src="https://s21.ax1x.com/2024/08/30/pAALyex.png" alt="VuePress 手机端界面2" /></p>
+<h3>VuePress 项目界面</h3>
+<p><img src="https://s21.ax1x.com/2024/08/30/pAALTmt.png" alt="VuePress 项目界面" /></p>
+<p>直接可以使用markdown写文章了</p>
+<p><strong>您可能感兴趣的文章</strong>：</p>
+<ul>
+<li><a href="毕业设计选题系统.html">毕业设计选题系统</a></li>
+<li><a href="一站式缴费系统.html">一站式缴费系统</a></li>
+<li><a href="学生信息管理系统.html">学生信息管理系统</a></li>
+<li><a href="eclipse独立绿色版2023-12-R.html">eclipse独立绿色版2023-12-R</a></li>
+<li><a href="eclipse独立绿色版2024-03-R-MySQL5.html">eclipse独立绿色版2024-03-R-MySQL5</a></li>
+<li><a href="eclipse独立绿色版2024-03-R.html">eclipse独立绿色版2024-03-R</a></li>
+</ul>
+
+      <div class="summary">联系我：357228560@qq.com</div><div class="overlay" id="overlay"><img src="" alt="Zoomed Image" id="zoomedImage"></div>
+    </div>
+	</div>
+  <script>
+      show_large_image();
+  </script>
+</body>
+</html>

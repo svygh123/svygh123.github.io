@@ -1,0 +1,120 @@
+﻿body {
+    background-color: #f5f6fa;
+}
+
+#content {
+  width: 340px;
+  margin: 4px auto 10px auto;
+}
+
+.text-center {
+	text-align: center;
+}
+
+#content img{
+  width: 100%;
+}
+
+.bread {
+  margin: 10px 0;
+}
+.underline-none {
+  /* 设置a下划线不显示 */
+  text-decoration: none;
+}
+
+#article h1.title, #article h1.pstitle {
+    color: #333;
+    font-size: 20px;
+    line-height: 25px;
+    font-weight: bold;
+    overflow: hidden;
+    padding: 0;
+    font-family: "微软雅黑";
+	  margin-bottom: 10px;
+}
+
+#article .info, #article .psinfo {
+    font-size: 12px;
+    color: #999999;
+    padding: 5px 0px;
+}
+
+#article .summary {
+  margin: 0 0 10px 0;
+  padding: 10px;
+  background: #ebf5fd;
+  color: #333;
+  border-left: 3px solid #49a7ea;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+#content h2{
+    position: relative;
+    margin: 10px 0;
+    color: #FFFFFF;
+    background: #6FA8DC;
+    padding: 6px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+#content h3{
+	position: relative;
+    margin: 10px 0 8px 0;
+    color: #0d5a96;
+    background: #f1f7fd;
+    border: 1px dashed #cae0f3;
+    border-left: 3px solid #49a7ea;
+    padding: 6px 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+#content h4{color:#535e67;display:block;margin:10px auto 0 auto;border-radius:6px;padding:7px 14px;position:relative;background:#eef2f3}
+#content h4::after{content:' ';width:85px;border-radius:2px;display:block;position:absolute;bottom:0;left:14px;height:2px;background:#bed3e4}
+#content h5,#content h6{font-size:.3rem;margin-top:.3rem;color:#222;}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+#zoomedImage {
+  max-width: 80%;
+  max-height: 80%;
+}
+
+@media screen and (min-width: 992px) {
+	#content {
+	  width: 100%;
+	}
+}
+
+pre > code {
+  display: block;
+  padding: 1rem 1.5rem;
+  white-space: pre;
+  overflow-x: auto;
+}
+code {
+  padding: 0.2rem 0.5rem;
+  margin: 0 0.2rem;
+  font-size: 90%;
+  white-space: nowrap;
+  /* background: #e1faeb; */
+  background-color: #efefef; /* #f5f6fa */
+  /* border-left: 2px solid #00b96b; */
+  border-left: 2px solid #aaa;
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+  border-radius: 0px;
+}

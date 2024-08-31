@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="git@github.com: Permission denied (publickey).">
+  <meta name="author" content="svygh123、风雨心行、软件开发与技术设计、357228560" />
+  <title>Github出现Permission denied (publickey)</title>
+  <!-- 引入 highlight.js 的样式：v11.10.0   
+  <link href="default.min.css" rel="stylesheet">
+  -->
+  <!-- 引入 Markdown-it.js：v13.0.2 和 highlight.js：v11.10.0
+  <script src="markdown-it.min.js"></script>
+  <script src="highlight.min.js"></script>
+    -->
+  <link href="skeleton.css" rel="stylesheet">
+  <link href="content.css" rel="stylesheet">
+  <script src="common.js"></script>
+</head>
+<body>
+	<div id="article">
+    <div title="返回首页" class="container bread" style="margin: 10px auto; cursor: pointer; border-bottom: 1px solid #49a7ea;">
+		     <a class="underline-none" href="/">源码家园</a> 
+	  </div>
+		<h1 class="title text-center">Github出现Permission denied (publickey)</h1>
+		<div class="info text-center">发布日期：2024-08-30   作者：svygh123 分类：文章</div>
+		<div id="content" class="container" style="padding:8px">
+      <div class="summary">ssh克隆github项目报错Permission denied。</div>
+      <h3>ssh克隆github项目报错Permission denied</h3>
+<pre><code>D:\soft\src&gt;git clone git@github.com:svygh123/srchome.git
+Cloning into 'srchome'...
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+D:\soft\src&gt;git clone git@github.com:svygh123/srchome.git
+Cloning into 'srchome'...
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+</code></pre>
+<h3>验证Key</h3>
+<pre><code>Administrator@PC-20221205RLEH MINGW64 /
+$ ssh -T git@github.com
+git@github.com: Permission denied (publickey).
+</code></pre>
+<h3>重新生成ssh key</h3>
+<pre><code>Administrator@PC-20221205RLEH MINGW64 /
+$ ssh-keygen -t rsa -b 4096 -C &quot;357228560@qq.com&quot;
+Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/Administrator/.ssh/id_rsa): id_rsa
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in id_rsa
+Your public key has been saved in id_rsa.pub
+The key fingerprint is:
+SHA256:CA7vEP7gBKYvNm6w0kWHkJh1fKnkZuQaUSmSxcNkTJw 357228560@qq.com
+The key's randomart image is:
++---[RSA 4096]----+
+| &amp;*=o. .         |
+|=.E.= o          |
+|.ooX.+           |
+|oo.=O...         |
+|. =*o.. S        |
+|.+.=.            |
+|o=o.o            |
+|=oo              |
+|o.               |
++----[SHA256]-----+
+</code></pre>
+<h3>重新验证</h3>
+<pre><code>Administrator@PC-20221205RLEH MINGW64 /
+$ ssh -T git@github.com
+git@github.com: Permission denied (publickey).
+</code></pre>
+<h3>最后验证通过</h3>
+<pre><code>Administrator@PC-20221205RLEH MINGW64 /
+$ ssh -T git@github.com
+Hi svygh123! You've successfully authenticated, but GitHub does not provide shell access.
+</code></pre>
+<h3>生成前，需要设置账户和邮箱</h3>
+<pre><code>git config --global user.name &quot;svygh123&quot;
+git config --global user.email &quot;357228560@qq.com&quot;
+</code></pre>
+<h3>生成时，需要注意名称</h3>
+<p>生成时，名称为id_rsa和id_rsa.pub，位置<strong>C:/Users/Administrator/.ssh</strong></p>
+<h3>Github加入SSH key</h3>
+<pre><code>settings --&gt; SSH and GPG keys --&gt; New SSH key
+</code></pre>
+<p>Title随意起名，Key填入id_rsa.pub内容</p>
+<p><strong>您可能感兴趣的文章</strong>：</p>
+<ul>
+<li><a href="毕业设计选题系统.html">毕业设计选题系统</a></li>
+<li><a href="一站式缴费系统.html">一站式缴费系统</a></li>
+<li><a href="学生信息管理系统.html">学生信息管理系统</a></li>
+<li><a href="eclipse独立绿色版2023-12-R.html">eclipse独立绿色版2023-12-R</a></li>
+<li><a href="eclipse独立绿色版2024-03-R-MySQL5.html">eclipse独立绿色版2024-03-R-MySQL5</a></li>
+<li><a href="eclipse独立绿色版2024-03-R.html">eclipse独立绿色版2024-03-R</a></li>
+</ul>
+
+      <div class="summary">联系我：357228560@qq.com</div><div class="overlay" id="overlay"><img src="" alt="Zoomed Image" id="zoomedImage"></div>
+    </div>
+	</div>
+  <script>
+      show_large_image();
+  </script>
+</body>
+</html>

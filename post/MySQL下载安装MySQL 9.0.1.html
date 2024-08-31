@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MySQL独立绿色版，MySQL一键运行包，MySQL一键启动包、MySQL 9.0.1">
+  <meta name="author" content="svygh123、风雨心行、软件开发与技术设计、357228560" />
+  <title>MySQL下载安装MySQL 9.0.1</title>
+  <!-- 引入 highlight.js 的样式：v11.10.0   
+  <link href="default.min.css" rel="stylesheet">
+  -->
+  <!-- 引入 Markdown-it.js：v13.0.2 和 highlight.js：v11.10.0
+  <script src="markdown-it.min.js"></script>
+  <script src="highlight.min.js"></script>
+    -->
+  <link href="skeleton.css" rel="stylesheet">
+  <link href="content.css" rel="stylesheet">
+  <script src="common.js"></script>
+</head>
+<body>
+	<div id="article">
+    <div title="返回首页" class="container bread" style="margin: 10px auto; cursor: pointer; border-bottom: 1px solid #49a7ea;">
+		     <a class="underline-none" href="/">源码家园</a> 
+	  </div>
+		<h1 class="title text-center">MySQL下载安装MySQL 9.0.1</h1>
+		<div class="info text-center">发布日期：2024-08-20   作者：svygh123 分类：database</div>
+		<div id="content" class="container" style="padding:8px">
+      <div class="summary">从0开始下载MySQL 9.0.1详细介绍安装过程</div>
+      <h2>1.下载</h2>
+<p>从
+https://dev.mysql.com/downloads/mysql/
+下载
+mysql-9.0.1-winx64.zip</p>
+<h2>2.解压</h2>
+<p>mysql-9.0.1-winx64</p>
+<h2>3.编写配置文件my.ini(在mysql-9.0.1-winx64目录下)</h2>
+<pre><code>[client]
+port = 3306
+
+[mysqld]
+# 指定数据目录
+datadir = D:/mysql-9.0.1-winx64/data
+# 指定 MySQL 的端口
+port = 3306
+# 启用日志
+log-error = D:/mysql-9.0.1-winx64/data/mysqld.log
+# 指定 MySQL 的最大连接数
+max_connections = 200
+# 启用二进制日志
+log-bin = mysql-bin
+# 设置服务器 ID
+server-id = 1
+# 设置字符集
+character-set-server=utf8mb4
+collation-server=utf8mb4_unicode_ci
+</code></pre>
+<h2>4.安装</h2>
+<p>cd进入mysql的bin目录下，执行以下语句</p>
+<pre><code>mysqld --initialize-insecure --user=mysql
+</code></pre>
+<h2>5.安装服务(可以不安装,需要自动启动则)</h2>
+<pre><code>mysqld install MySQL9 --defaults-file=&quot;D:/soft/mysql-9.0.1-winx64/my.ini&quot;
+</code></pre>
+<p>启动</p>
+<pre><code>net start MySQL9
+</code></pre>
+<p>关闭</p>
+<pre><code>net stop MySQL9
+</code></pre>
+<p>移除服务</p>
+<pre><code>sc delete MySQL9
+</code></pre>
+<p>或者</p>
+<pre><code>mysqld remove mysql(这个命令需要在mysql的bin目录下)
+</code></pre>
+<h2>6.不安装服务启动方式</h2>
+<p>进入mysql的bin目录</p>
+<pre><code>mysqld --console
+</code></pre>
+<p>提示错误1：</p>
+<pre><code>2024-08-20T09:30:29.816185Z 0 [System] [MY-015015] [Server] MySQL Server - start.
+2024-08-20T09:30:30.081386Z 0 [System] [MY-010116] [Server] D:mysql-9.0.1-winx64binmysqld.exe (mysqld 9.0.1) starting as process 5884
+2024-08-20T09:30:30.096984Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2024-08-20T09:30:30.128185Z 1 [ERROR] [MY-012611] [InnoDB] Operating system error number 2 in a file operation.
+2024-08-20T09:30:30.128187Z 1 [ERROR] [MY-012646] [InnoDB] File .ibdata1: 'open' returned OS error 71. Cannot continue operation
+2024-08-20T09:30:30.128188Z 1 [ERROR] [MY-012981] [InnoDB] Cannot continue operation.
+</code></pre>
+<p>网上找了，在my.ini加入以下配置</p>
+<pre><code># 指定 InnoDB 数据文件
+innodb_data_home_dir=D:/mysql-9.0.1-winx64/data1
+innodb-data-file-path=ibdata1:10M:autoextend
+</code></pre>
+<p>继续报不一样的错：</p>
+<pre><code>D:mysql-9.0.1-winx64bin&gt;mysqld --console
+2024-08-20T10:05:39.172951Z 0 [System] [MY-015015] [Server] MySQL Server - start.
+2024-08-20T10:05:39.370356Z 0 [System] [MY-010116] [Server] D:mysql-9.0.1-winx64binmysqld.exe (mysqld 9.0.1) starting as process 7388
+2024-08-20T10:05:39.381354Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2024-08-20T10:05:39.404956Z 1 [ERROR] [MY-012263] [InnoDB] The Auto-extending innodb_system data file 'D:mysql-9.0.1-winx64data1ibdata1' is of a different size 0 pages (rounded down to MB) than specified in the .cnf file: initial 640 pages, max 0 (relevant if non-zero) pages!
+2024-08-20T10:05:39.404957Z 1 [ERROR] [MY-012930] [InnoDB] Plugin initialization aborted with error Generic error.
+2024-08-20T10:05:39.451755Z 1 [ERROR] [MY-010334] [Server] Failed to initializeDD Storage Engine
+2024-08-20T10:05:39.451756Z 0 [ERROR] [MY-010020] [Server] Data Dictionary initialization failed.
+2024-08-20T10:05:39.451757Z 0 [ERROR] [MY-010119] [Server] Aborting
+2024-08-20T10:05:39.451767Z 0 [System] [MY-010910] [Server] D:mysql-9.0.1-winx64binmysqld.exe: Shutdown complete (mysqld 9.0.1)  MySQL Community Server
+- GPL.
+2024-08-20T10:05:39.451768Z 0 [System] [MY-015016] [Server] MySQL Server - end.
+</code></pre>
+<p>重新安装即可</p>
+<h2>7.修改密码</h2>
+<p>启动后，执行以下语句</p>
+<pre><code>ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
+FLUSH PRIVILEGES;
+EXIT;
+</code></pre>
+<p><strong>您可能感兴趣的文章</strong>：</p>
+<ul>
+<li><a href="Nodejs独立绿色版node-v18.18.2-win-x64.html">Nodejs独立绿色版node-v18.18.2-win-x64</a></li>
+<li><a href="eclipse独立绿色版2023-12-R.html">eclipse独立绿色版2023-12-R</a></li>
+<li><a href="eclipse独立绿色版2024-03-R-MySQL5.html">eclipse独立绿色版2024-03-R-MySQL5</a></li>
+<li><a href="eclipse独立绿色版2024-03-R.html">eclipse独立绿色版2024-03-R</a></li>
+</ul>
+
+      <div class="summary">联系我：357228560@qq.com</div><div class="overlay" id="overlay"><img src="" alt="Zoomed Image" id="zoomedImage"></div>
+    </div>
+	</div>
+  <script>
+      show_large_image();
+  </script>
+</body>
+</html>

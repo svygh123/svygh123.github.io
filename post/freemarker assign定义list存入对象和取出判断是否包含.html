@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FreeMarker，assign，list，存入对象，判断是否包含，seq_contains">
+  <meta name="author" content="svygh123、风雨心行、软件开发与技术设计、357228560" />
+  <title>freemarker assign定义list存入对象和取出判断是否包含</title>
+  <!-- 引入 highlight.js 的样式：v11.10.0   
+  <link href="default.min.css" rel="stylesheet">
+  -->
+  <!-- 引入 Markdown-it.js：v13.0.2 和 highlight.js：v11.10.0
+  <script src="markdown-it.min.js"></script>
+  <script src="highlight.min.js"></script>
+    -->
+  <link href="skeleton.css" rel="stylesheet">
+  <link href="content.css" rel="stylesheet">
+  <script src="common.js"></script>
+</head>
+<body>
+	<div id="article">
+    <div title="返回首页" class="container bread" style="margin: 10px auto; cursor: pointer; border-bottom: 1px solid #49a7ea;">
+		     <a class="underline-none" href="/">源码家园</a> 
+	  </div>
+		<h1 class="title text-center">freemarker assign定义list存入对象和取出判断是否包含</h1>
+		<div class="info text-center">发布日期：2024-08-31   作者：svygh123 分类：文章</div>
+		<div id="content" class="container" style="padding:8px">
+      <div class="summary">在FreeMarker中，你可以使用assign指令来定义一个变量，并为它赋予一个列表值。然后，你可以使用if指令来检查列表中是否包含特定的对象。</div>
+      <p>下面举一个例子，演示如何定义一个列表，将对象存入列表，并检查列表是否包含该对象：</p>
+<pre><code>&lt;#assign myList = []&gt;
+ 
+&lt;#-- 创建一个示例对象 --&gt;
+&lt;#assign user1 = {&quot;name&quot;:&quot;Alice&quot;, &quot;age&quot;:25}&gt;
+&lt;#assign user2 = {&quot;name&quot;:&quot;Bob&quot;, &quot;age&quot;:30}&gt;
+ 
+&lt;#-- 将对象添加到列表中 --&gt;
+&lt;#assign myList = myList + [user1]&gt;
+ 
+&lt;#-- 检查列表是否包含特定对象 --&gt;
+&lt;#if myList?seq_contains(user1)&gt;
+  User1 is in the list.
+&lt;#else&gt;
+  User1 is not in the list.
+&lt;/#if&gt;
+ 
+&lt;#-- 检查列表是否包含另一个对象 --&gt;
+&lt;#if myList?seq_contains(user2)&gt;
+  User2 is in the list.
+&lt;#else&gt;
+  User2 is not in the list.
+&lt;/#if&gt;
+</code></pre>
+<p>在这个例子中，我们首先使用&lt;#assign myList = []&gt;创建了一个空列表。然后，我们创建了两个简单的用户对象user1和user2。我们使用+操作符将对象添加到列表中。</p>
+<p>接下来，我们使用?seq_contains内建函数来检查列表是否包含特定的对象。这个函数会返回布尔值，表示列表是否包含给定的对象。</p>
+<p>请注意，在FreeMarker中，列表和序列是通用的，所以你可以用同样的方法来处理序列（比如字符串序列）。</p>
+<p><strong>您可能感兴趣的文章</strong>：</p>
+<ul>
+<li><a href="毕业设计选题系统.html">毕业设计选题系统</a></li>
+<li><a href="一站式缴费系统.html">一站式缴费系统</a></li>
+<li><a href="学生信息管理系统.html">学生信息管理系统</a></li>
+<li><a href="eclipse独立绿色版2023-12-R.html">eclipse独立绿色版2023-12-R</a></li>
+<li><a href="eclipse独立绿色版2024-03-R-MySQL5.html">eclipse独立绿色版2024-03-R-MySQL5</a></li>
+<li><a href="eclipse独立绿色版2024-03-R.html">eclipse独立绿色版2024-03-R</a></li>
+</ul>
+
+      <div class="summary">联系我：357228560@qq.com</div><div class="overlay" id="overlay"><img src="" alt="Zoomed Image" id="zoomedImage"></div>
+    </div>
+	</div>
+  <script>
+      show_large_image();
+  </script>
+</body>
+</html>
