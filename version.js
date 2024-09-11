@@ -1,1 +1,1 @@
-checkUpdate('1.0.5');
+checkUpdate('1.0.6','1.底部栏加图标');
