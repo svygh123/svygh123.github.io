@@ -1,1 +1,1 @@
-checkUpdate('1.0.4');
+checkUpdate('1.0.5');
